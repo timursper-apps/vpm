@@ -21,7 +21,7 @@ VPM is a program for easy program creation. VPM is used for:
 4. It is easier for students to learn using ready-made parts of the code
 ## Authors
 Please, read the MIT License
-- [@timursper-apps](https://github.com/timursper-apps)
+- [@timursper-apps](https://github.com/timursper-apps)\n
 Idea:
 - [Scratch](https://scratch.mit.edu)
 - [App Inventor](https://appinventor.mit.edu)
