@@ -22,7 +22,8 @@ ru = {
     "Add output":"Добавить вывод",
     "Add input":"Добавить ввод",
     "Add function":"Добавить функцию",
-    "Call function":"Вызвать функцию"
+    "Call function":"Вызвать функцию",
+    "Add \"if\"":"Добавить \"if\""
 }
 
 en = {
@@ -40,7 +41,8 @@ en = {
     "Добавить вывод":"Add output",
     "Добавить ввод":"Add input",
     "Добавить функцию":"Add function",
-    "Вызвать функцию":"Call function"
+    "Вызвать функцию":"Call function",
+    "Добавить \"if\"":"Add \"if\""
 }
 
 def selected(x = 0):
@@ -105,8 +107,16 @@ def selected(x = 0):
 
         function_name = simpledialog.askstring("Function settings", func_name)
         function_args = simpledialog.askstring("Function settings", func_args)
-
         code.insert(END, f"{function_name}({function_args})")
+    elif select == "Add \"if\"" or select == ru.get("Add \"if\""):
+        if lang == 'ru':
+            if_ = "Напишите условие"
+        elif lang == 'en':
+            if_ = "Write a condition"
+        
+        condintion = simpledialog.askstring("If settings", if_)
+
+        code.insert(END, f"if {condintion}:\n  ")
 
 def lang_selected(x = 1):
     global lang
@@ -131,8 +141,8 @@ def lang_selected(x = 1):
 
         root.update()
 
-cmds = ["Add var", "Add output", "Add input", "Add function", "Call function"]
-cmds_show = ["Add var", "Add output", "Add input", "Add function", "Call function"]
+cmds = ["Add var", "Add output", "Add input", "Add function", "Call function", "Add \"if\""]
+cmds_show = ["Add var", "Add output", "Add input", "Add function", "Call function", "Add \"if\""]
 
 langs_list = ['Choose language / Выберите язык', 'ru', 'en']
 lang = 'en'
@@ -143,7 +153,7 @@ commands_cb.place(x=0, y=0, width=300)
 code = Text(root)
 code.place(x=0, y=20, width=300, height=280)
 
-langs = ttk.Combobox(root, values=langs_list, )
+langs = ttk.Combobox(root, values=langs_list)
 langs.place(x=0, y=280, width=300)
 langs.current(0)
 
