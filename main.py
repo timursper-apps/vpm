@@ -23,7 +23,9 @@ ru = {
     "Add input":"Добавить ввод",
     "Add function":"Добавить функцию",
     "Call function":"Вызвать функцию",
-    "Add \"if\"":"Добавить \"if\""
+    "Add \"if\"":"Добавить \"if\"",
+    "Add else":"Добавить else",
+    "Add elif":"Добавить elif"
 }
 
 en = {
@@ -42,7 +44,9 @@ en = {
     "Добавить ввод":"Add input",
     "Добавить функцию":"Add function",
     "Вызвать функцию":"Call function",
-    "Добавить \"if\"":"Add \"if\""
+    "Добавить \"if\"":"Add \"if\"",
+    "Добавить else":"Add else",
+    "Добавить elif":"Add elif"
 }
 
 def selected(x = 0):
@@ -117,6 +121,17 @@ def selected(x = 0):
         condintion = simpledialog.askstring("If settings", if_)
 
         code.insert(END, f"if {condintion}:\n  ")
+    elif select == "Add else" or select == "Добавить else":
+        code.insert(END, f"else:\n  ")
+    elif select == "Add elif" or select == "Добавить elif":
+        if lang == 'ru':
+            elif_ = "Напишите условие"
+        elif lang == 'en':
+            elif_ = "Write a condition"
+        
+        condintion = simpledialog.askstring("If settings", elif_)
+        code.insert(END, f"elif {condintion}:\n  ")
+
 
 def lang_selected(x = 1):
     global lang
@@ -141,8 +156,8 @@ def lang_selected(x = 1):
 
         root.update()
 
-cmds = ["Add var", "Add output", "Add input", "Add function", "Call function", "Add \"if\""]
-cmds_show = ["Add var", "Add output", "Add input", "Add function", "Call function", "Add \"if\""]
+cmds = ["Add var", "Add output", "Add input", "Add function", "Call function", "Add \"if\"", "Add else", "Add elif"]
+cmds_show = ["Add var", "Add output", "Add input", "Add function", "Call function", "Add \"if\"", "Add else", "Add elif"]
 
 langs_list = ['Choose language / Выберите язык', 'ru', 'en']
 lang = 'en'
